@@ -4,14 +4,14 @@ import * as Yup from "yup";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 100%;
+  padding-top: 30px;
   display: flex;
-  align-items: center;
   justify-content: center;
 `;
 
 const Content = styled.div`
-  width: 600px;
+  width: 80%;
+  max-width: 600px;
   display: flex;
   justify-content: center;
   box-shadow: 0 1px 2px;
@@ -22,7 +22,7 @@ const Row = styled.div`
   display: flex;
   gap: 20px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
     display: block;
   }
 `;
@@ -56,11 +56,9 @@ function App() {
   const validationSchema = Yup.object({
     nome: Yup.string()
       .min(3, "O campo deve ter no mínimo 3 caracteres")
-      .required("Campo é obrigatório"),
-    sobrenome: Yup.string().required("Campo é obrigatório"),
-    email: Yup.string()
-      .email("E-mail inválido")
-      .required("Campo é obrigatório"),
+      .required("Campo obrigatório"),
+    sobrenome: Yup.string().required("Campo obrigatório"),
+    email: Yup.string().email("E-mail inválido").required("Campo obrigatório"),
     dataNascimento: Yup.date()
       .max(new Date(), "Não é possível incluir uma data futura")
       .required("Campo obrigatório"),

@@ -1,13 +1,14 @@
 import React from "react";
-import { Field as FieldFormik, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from "formik";
 import styled from "styled-components";
 
 const FieldStyled = styled.input`
-  padding: 8px;
+  padding: 10px;
   border-radius: 5px;
   border: 1px solid;
   outline: none;
-  font-size: 16px;
+  font-size: 18px;
+  width: 90%;
 `;
 
 const ErrorStyled = styled.span`
@@ -20,7 +21,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 2px;
   margin-bottom: 15px;
-  width: 240px;
+  width: 100%;
 `;
 
 const Label = styled.label`
@@ -38,7 +39,7 @@ export const Input = ({ name, type = "", label, required, ...props }) => {
         {label || name}
         {required && <RequiredLabel>*</RequiredLabel>}
       </Label>
-      <FieldFormik as={FieldStyled} name={name} type={type} {...props} />
+      <Field as={FieldStyled} name={name} type={type} {...props} />
       <ErrorMessage name={name} component={ErrorStyled} />
     </Container>
   );

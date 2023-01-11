@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import styled from "styled-components";
 
 const Container = styled.div`
-  padding-top: 60px;
+  padding: 60px 0;
   display: flex;
   justify-content: center;
 `;
@@ -22,7 +22,7 @@ const Row = styled.div`
   display: flex;
   gap: 20px;
 
-  @media (max-width: 650px) {
+  @media (max-width: 550px) {
     display: block;
   }
 `;
@@ -82,7 +82,7 @@ function App() {
           validationSchema={validationSchema}
         >
           {({ values, isSubmitting }) => (
-            <Form>
+            <Form style={{ width: "90%" }}>
               <Row>
                 <Input name="nome" required />
                 <Input name="sobrenome" required />
